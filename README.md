@@ -1,2 +1,3 @@
 # Airport-Database-Management-System
 DBS Project
+This Airport Database Management System is designed to streamline and centralize the management of key airport operations. Built with a focus on efficiency and accessibility, the system provides administrative access to manage and monitor critical data related to passengers, airlines, airports, and security. Administrators can perform various operations such as viewing, updating, and organizing records, ensuring smooth coordination across all airport departments. This project serves as a foundational tool for understanding database-driven web applications and demonstrates the integration of backend logic with real-world airport management scenarios.
