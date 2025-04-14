@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Security Verification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 35px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 420px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        form:hover {
+            transform: scale(1.015);
+        }
+
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #006064;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #b2dfdb;
+            border-radius: 8px;
+            background-color: #f9fefe;
+            font-size: 14px;
+            color: #004d40;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #26c6da;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #00bcd4;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0097a7;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            background-color: #ffe0e0;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="{{ url_for('passenger_info') }}" method="POST">
+        <div class="emoji">🧳</div>
+        <h2>Verify Your Identity</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <label for="PassengerID">Passenger ID:</label>
+        <input type="text" id="PassengerID" name="PassengerID" required>
+
+        <label for="PassportID">Passport ID:</label>
+        <input type="password" id="PassportID" name="PassportID" required>
+
+        <input type="submit" value="Verify and View Info">
+    </form>
+</body>
+
+</html>

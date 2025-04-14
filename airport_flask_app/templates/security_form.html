@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Verification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa; /* mild cyan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 35px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 420px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        form:hover {
+            transform: scale(1.015);
+        }
+
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;
+            color: #006064;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #b2dfdb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            background-color: #f9fefe;
+            color: #004d40;
+        }
+
+        input[type="text"]:focus {
+            border-color: #26c6da;
+            outline: none;
+        }
+
+        button {
+            background-color: #00bcd4;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+        }
+
+        .flash {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .flash.warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .flash.danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="{{ url_for('security_info') }}">
+        <div class="emoji">✈</div>
+
+        <h2>Security Verification</h2>
+
+        <label for="PassengerID">Passenger ID</label>
+        <input type="text" name="PassengerID" placeholder="Enter your Passenger ID" required>
+
+        <label for="PassportID">Passport ID</label>
+        <input type="text" name="PassportID" placeholder="Enter your Passport ID" required>
+
+        <button type="submit">Verify</button>
+    </form>
+</body>
+</html>

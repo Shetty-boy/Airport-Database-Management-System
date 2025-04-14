@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Airport Information</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 40px;
+            color: #004d40;
+        }
+
+        h2, h3 {
+            color: #006064;
+            text-align: center;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            padding: 25px 30px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: #f1fdfd;
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-left: 5px solid #00acc1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        strong {
+            color: #00796b;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #d84315;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h2>✈ Airport Information</h2>
+        {% if airport %}
+            <p><strong>ID:</strong> {{ airport[0] }}</p>
+            <p><strong>Name:</strong> {{ airport[1] }}</p>
+            <p><strong>Location:</strong> {{ airport[2] }}</p>
+            <p><strong>Type:</strong> {{ airport[3] }}</p>
+        {% else %}
+            <p class="no-data">No airport data available.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h3>🛫 Flights from this Airport</h3>
+        {% if flights %}
+            <ul>
+            {% for f in flights %}
+                <li>
+                    <strong>Flight ID:</strong> {{ f[0] }} |
+                    <strong>Departure:</strong> {{ f[1] }} |
+                    <strong>Arrival:</strong> {{ f[2] }} |
+                    <strong>Airline ID:</strong> {{ f[3] }} |
+                    <strong>Fueling Station ID:</strong> {{ f[4] }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-data">No flights found for this airport.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h3>🛰 Traffic Control Information</h3>
+        {% if traffic_controls %}
+            <ul>
+            {% for tc in traffic_controls %}
+                <li>
+                    <strong>ID:</strong> {{ tc[0] }} |
+                    <strong>Name:</strong> {{ tc[1] }} |
+                    <strong>Tower No:</strong> {{ tc[2] }} |
+                    <strong>Tower Name:</strong> {{ tc[3] }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-data">No traffic control data found.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

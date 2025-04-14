@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight and Airline Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 40px;
+            color: #004d40;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #006064;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            padding: 25px 30px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f1fdfd;
+            margin: 10px 0;
+            padding: 12px;
+            border-left: 5px solid #00acc1;
+            border-radius: 8px;
+        }
+
+        strong {
+            color: #00796b;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #d84315;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🛫 Flight and Airline Details</h2>
+
+    <div class="section">
+        {% if airline %}
+            <h3>🛩 Airline Info</h3>
+            <p><strong>ID:</strong> {{ airline[0] }}</p>
+            <p><strong>Name:</strong> {{ airline[1] }}</p>
+            <p><strong>Type:</strong> {{ airline[2] }}</p>
+        {% else %}
+            <p class="no-data">No airline found with this ID.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        {% if flight %}
+            <h3>✈ Flight Info</h3>
+            <p><strong>ID:</strong> {{ flight[0] }}</p>
+            <p><strong>Departure:</strong> {{ flight[1] }}</p>
+            <p><strong>Arrival:</strong> {{ flight[2] }}</p>
+            <p><strong>Airport ID:</strong> {{ flight[5] }}</p>
+        {% else %}
+            <p class="no-data">No flight found with this ID and Airline.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        {% if pilot %}
+            <h3>👨‍✈ Pilot Info</h3>
+            <ul>
+                {% for p in pilot %}
+                    <li>
+                        <strong>Pilot ID:</strong> {{ p[0] }} |
+                        <strong>Name:</strong> {{ p[1] }} |
+                        <strong>Experience:</strong> {{ p[2] }} hours |
+                        <strong>License No.:</strong> {{ p[3] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-data">No pilot assigned to this flight.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        {% if fueling_station %}
+            <h3>⛽ Fueling Station Info</h3>
+            <p><strong>ID:</strong> {{ fueling_station[0] }}</p>
+            <p><strong>Name:</strong> {{ fueling_station[1] }}</p>
+            <p><strong>Capacity:</strong> {{ fueling_station[2] }}</p>
+            <p><strong>Aircrafts Attended:</strong> {{ fueling_station[3] }}</p>
+            <p><strong>Fuel Type:</strong> {{ fueling_station[4] }}</p>
+        {% else %}
+            <p class="no-data">No fueling station info available.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html

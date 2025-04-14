@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passenger Details</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #004d40;
+            padding: 40px;
+            margin: 0;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #006064;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            padding: 25px 35px;
+            margin: 30px auto;
+            width: 85%;
+            max-width: 800px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f1fefe;
+            margin: 10px 0;
+            padding: 12px;
+            border-left: 5px solid #00acc1;
+            border-radius: 8px;
+        }
+
+        strong {
+            color: #00796b;
+        }
+
+        .no-data {
+            text-align: center;
+            font-style: italic;
+            color: #d84315;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🧍 Passenger Information</h2>
+    <div class="section">
+        <p><strong>ID:</strong> {{ passenger[0] }}</p>
+        <p><strong>Name:</strong> {{ passenger[1] }}</p>
+        <p><strong>Contact:</strong> {{ passenger[2] }}</p>
+        <p><strong>Passport:</strong> {{ passenger[3] }}</p>
+    </div>
+
+    <h3>🎫 Ticket Details</h3>
+    <div class="section">
+        {% if ticket %}
+            <p><strong>Ticket ID:</strong> {{ ticket[0] }}</p>
+            <p><strong>Type:</strong> {{ ticket[1] }}</p>
+            <p><strong>Price:</strong> ₹{{ ticket[2] }}</p>
+            <p><strong>Purchase Date:</strong> {{ ticket[3] }}</p>
+        {% else %}
+            <p class="no-data">No ticket found for this passenger.</p>
+        {% endif %}
+    </div>
+
+    <h3>🛫 Flight Details</h3>
+    <div class="section">
+        {% if flight %}
+            <p><strong>Flight ID:</strong> {{ flight[0] }}</p>
+            <p><strong>Departure Time:</strong> {{ flight[1] }}</p>
+            <p><strong>Arrival Time:</strong> {{ flight[2] }}</p>
+            <p><strong>Duration:</strong> {{ flight[3] }}</p>
+            <p><strong>Airport:</strong> {{ flight[4] }}</p>
+            <p><strong>Airline:</strong> {{ flight[5] }}</p>
+        {% else %}
+            <p class="no-data">No flight found.</p>
+        {% endif %}
+    </div>
+
+    <h3>🧳 Luggage Details</h3>
+    <div class="section">
+        {% if luggage %}
+            <ul>
+            {% for l in luggage %}
+                <li>
+                    <strong>Luggage ID:</strong> {{ l[0] }} |
+                    Type: {{ l[1] }} |
+                    Weight: {{ l[2] }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-data">No luggage assigned to this passenger.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f7fa; /* mild cyan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form container */
+form {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    transition: transform 0.2s ease;
+}
+
+form:hover {
+    transform: scale(1.02);
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #00796b;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #b2dfdb;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #f9fefe;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 1.5px solid #26c6da;
+    outline: none;
+}
+
+/* Submit button */
+button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0097a7;
+}
+
+/* Optional: Flash message styles (if using Flask flash messages) */
+.flash {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.flash.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.flash.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}

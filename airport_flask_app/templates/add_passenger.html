@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Passenger</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            width: 420px;
+            margin: 60px auto;
+            padding: 35px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #004d40;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #b2dfdb;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #008ba3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="POST">
+            <h2>🧍 Add Passenger</h2>
+
+            <label for="PassengerID">Passenger ID:</label>
+            <input type="text" name="PassengerID" required>
+
+            <label for="P_Name">Name:</label>
+            <input type="text" name="P_Name" required>
+
+            <label for="P_Contact">Contact:</label>
+            <input type="text" name="P_Contact" required>
+
+            <label for="PassportID">Passport ID:</label>
+            <input type="text" name="PassportID" required>
+
+            <label for="FlightID">Flight ID:</label>
+            <input type="text" name="FlightID" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

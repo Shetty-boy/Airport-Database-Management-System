@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passenger & Security Info</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #004d40;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #006064;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            padding: 25px 30px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f0fefe;
+            margin: 10px 0;
+            padding: 12px;
+            border-left: 5px solid #00acc1;
+            border-radius: 8px;
+        }
+
+        strong {
+            color: #00796b;
+        }
+
+        .no-data {
+            text-align: center;
+            font-style: italic;
+            color: #d84315;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🧍 Passenger Information</h2>
+
+    <div class="section">
+        <p><strong>ID:</strong> {{ passenger[0] }}</p>
+        <p><strong>Name:</strong> {{ passenger[1] }}</p>
+        <p><strong>Contact:</strong> {{ passenger[2] }}</p>
+        <p><strong>Passport ID:</strong> {{ passenger[3] }}</p>
+        <p><strong>Flight ID:</strong> {{ passenger[4] }}</p>
+    </div>
+
+    <h3>🛡 Security Information</h3>
+
+    <div class="section">
+        {% if security %}
+            <ul>
+                {% for sec in security %}
+                    <li>
+                        <strong>Security ID:</strong> {{ sec[0] }} |
+                        <strong>Name:</strong> {{ sec[1] }} |
+                        <strong>Department:</strong> {{ sec[2] }} |
+                        <strong>Allocated Area:</strong> {{ sec[3] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-data">No security personnel assigned to this passenger.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

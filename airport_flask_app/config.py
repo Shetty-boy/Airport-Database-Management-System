@@ -1,0 +1,4 @@
+DB_USER = 'system'
+DB_PASSWORD = 'dse073'
+DB_DSN ="(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XEPDB1)))"
+#DB_DSN = 'hostname:port/service_name'
